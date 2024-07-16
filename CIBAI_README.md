@@ -10,13 +10,8 @@ A brief description of what this project does and who it's for
 
 
 ## Usage/Examples
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
+App Link below
+[Click here -->](https://storynator-zeyekhz7anifumtae8sdds.streamlit.app/)
 ```
 
 
