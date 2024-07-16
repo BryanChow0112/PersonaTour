@@ -12,7 +12,6 @@ A brief description of what this project does and who it's for
 ## Usage/Examples
 App Link below
 [Click here -->](https://storynator-zeyekhz7anifumtae8sdds.streamlit.app/)
-```
 
 
 ## Badges
