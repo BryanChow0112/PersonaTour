@@ -79,8 +79,8 @@ tab1.title("App that can change your life")
 
 with tab2.form('why this section cant be empty'):
   # st.write('This is for user to key in information')
-  msg = tab2.text_input(label='Keywords to generate your story!')
-  submitted = tab2.form_submit_button('Submit')
+  msg = st.text_input(label='Keywords to generate your story!')
+  submitted = st.form_submit_button('Submit')
   if submitted:
     story = generate_story(msg, client)
     refined_story = design_response(story, client)
