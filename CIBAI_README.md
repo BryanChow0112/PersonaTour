@@ -6,7 +6,7 @@ A brief description of what this project does and who it's for
 
 ## Documentation
 
-[Documentation](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[For a good time click here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 
 ## Usage/Examples
