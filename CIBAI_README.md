@@ -1,12 +1,12 @@
 
-# Project Title
+# Storynator
 
 A brief description of what this project does and who it's for
 
 
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+[Documentation](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 
 ## Usage/Examples
@@ -34,8 +34,7 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 
 ## Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- Story generator
+- Story's cover generation
+- Tab changing
 
