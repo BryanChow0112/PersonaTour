@@ -1,8 +1,8 @@
-entrypoint = "main.py"
-modules = ["python-3.10"]
+modules = ["python-3.10", "web", "nix"]
+run = "streamlit run undefined"
 
 [nix]
-channel = "stable-23_05"
+channel = "stable-24_05"
 
 [unitTest]
 language = "python3"
@@ -11,7 +11,7 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
-run = ["python3", "main.py"]
+run = ["sh", "-c", "streamlit run undefined"]
 deploymentTarget = "cloudrun"
 
 [[ports]]
