@@ -2,9 +2,8 @@
 from openai import OpenAI
 import streamlit as st
 from context import context
-from PIL import Image, ImageEnhance, ImageDraw, ImageFont
+from PIL import Image, ImageEnhance
 import base64
-from cards import travel_packages_tab
 from text_translation import extract_text_from_image, translate_text
 import os
 import googlemaps
@@ -14,58 +13,42 @@ from urllib.parse import quote
 import requests
 import folium
 from gtts import gTTS
-from chatbot import run_bot
 import streamlit.components.v1 as components
 
+
 # Setup OpenAI API
-api_key = os.environ['OPENAI_API_KEY']
+api_key = st.secrets['OPENAI_API_KEY']
 client = OpenAI(api_key=api_key)
 
-
-def home():
-    pass
-
-
-# Function to handle chatbot interactions
 def run_chatbot():
-    # Chatbot main
-    st.title("MBTI Tourbot")
+    last_assistant_message = None
+    st.title("Ideabot")
 
-    # Set a default model
+    # Initialize session state
     if "openai_model" not in st.session_state:
-        # assigns value gpt-4 to key openai_model in the session state dictionary
         st.session_state["openai_model"] = "gpt-4"
-
-    # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state["messages"] = []
+        system_message = {"role": "system", "content": context}
+        st.session_state.messages.append(system_message)
 
-    system_message = {"role": "system", "content": f'{context}'}
-
-    st.session_state.messages.append(system_message)
-
-    # Greeting
+    # Display greeting
     with st.chat_message("assistant"):
         st.write("Hello 👋")
 
-    # Display chat messages from history on app rerun
-    for message in st.session_state.messages:  # iterate through all messages\
+    # Display chat history
+    for message in st.session_state.messages:
         if message["content"] != context or message["role"] != "system":
-            with st.chat_message(
-                    message["role"]
-            ):  # display below in an expander relative to the role
-                st.markdown(message["content"] + " ~ " + message["role"])
-                st.write(message)
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
+            if message["role"] == "assistant":
+                last_assistant_message = message["content"]
 
-    # Accept user input
+    # Chat input and response
     if prompt := st.chat_input("Ask me a travel query!"):
-        # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
-        # Display user message in chat message container
         with st.chat_message("user"):
             st.markdown(prompt)
-
-        # Display assistant response in chat message container
         with st.chat_message("assistant"):
             stream = client.chat.completions.create(
                 model=st.session_state["openai_model"],
@@ -81,7 +64,15 @@ def run_chatbot():
             "role": "assistant",
             "content": response
         })
+        last_assistant_message = response
 
+    if len(st.session_state.messages) >= 4:
+        # Add the "End Chat" button
+        if st.button("End Chat and Generate Package"):
+            return last_assistant_message
+
+    # This return statement will only be reached if the button is not pressed
+    return None
 
 # Function to convert image to base64
 def img_to_base64(image_path):

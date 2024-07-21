@@ -1,12 +1,6 @@
-import json
-import os
 import streamlit as st
 from openai import OpenAI
 from findplaces import api
-from cards import travel_packages_tab
-import time
-
-api_key = 'AIzaSyBKjWUZf6O_G7w5Jxo5KsO0H2NXEvzAfcM'
 
 
 def run_bot():
@@ -14,7 +8,7 @@ def run_bot():
     places, user_input = api()
 
     # Initialize OpenAI client
-    api_key = os.environ['OPENAI_API_KEY']
+    api_key = st.secrets['OPENAI_API_KEY']
     client = OpenAI(api_key=api_key)
 
     # st.write(places)

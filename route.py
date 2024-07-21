@@ -1,11 +1,5 @@
 # Imports
-from openai import OpenAI
 import streamlit as st
-from context import context
-from PIL import Image, ImageEnhance, ImageDraw, ImageFont
-import base64
-from cards import travel_packages_tab
-from text_translation import extract_text_from_image, translate_text
 import os
 import googlemaps
 from itertools import permutations
@@ -13,7 +7,6 @@ from polyline import decode
 from urllib.parse import quote
 import requests
 import folium
-from gtts import gTTS
 
 
 def route():

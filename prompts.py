@@ -1,6 +1,3 @@
-from os import system
-
-
 def genai_to_google_prompts():
 
   system_content = """

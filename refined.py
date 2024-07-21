@@ -1,14 +1,9 @@
 # Imports
-from openai import OpenAI
 import streamlit as st
 from context import context
-from PIL import Image, ImageEnhance
-import base64
 from cards import travel_packages_tab
-from chatbot_function import img_to_base64, translation, route, text_to_speech
-from chatbot_test import run_chatbot
+from chatbot_function import run_chatbot, img_to_base64, translation, route, text_to_speech
 from home import home
-from aboutme import test
 from chatbot import run_bot
 
 ### Set layout page to wide
@@ -31,13 +26,13 @@ def main():
     selected_tab = st.sidebar.radio("Select a tab:", tab_names, index=0)
     # Display the st.info box if the checkbox is checked
     if selected_tab == "TripChatbot🤖":
-        use_genai = st.sidebar.checkbox("With api", value=True)
+        use_genai = st.sidebar.checkbox("With API", value=True)
     else:
         use_genai = False
 
     # Define content for each tab
     if selected_tab == "Home🏠":
-        test()
+        home()
     elif selected_tab == "TripChatbot🤖" and use_genai:
         run_bot()
     elif selected_tab == "TripChatbot🤖" and not use_genai:

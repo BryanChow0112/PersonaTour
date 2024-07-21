@@ -1,7 +1,5 @@
 import json
-from pydantic.types import Json
 import streamlit as st
-import os
 from openai import OpenAI
 from prompts import genai_to_google_prompts
 
@@ -17,7 +15,7 @@ def prompt_user():
 
 def generate_keywords(user_input):
     # Get key from os
-    api_key = os.environ['OPENAI_API_KEY']
+    api_key = st.secrets['OPENAI_API_KEY']
     client = OpenAI(api_key=api_key)
 
     system_content, user_example_content, assistant_example_content = genai_to_google_prompts(

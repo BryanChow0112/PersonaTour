@@ -1,11 +1,9 @@
 import streamlit as st
 from openai import OpenAI
 import random
-import os
 
 # OpenAI setup
-api_key = 'sk-proj-a3z3g3hdXQzCaCCdcQYuT3BlbkFJQ7K1fDjjypZWIHxNDya7'
-# api_key = os.environ['OPENAI_API_KEY']
+api_key = st.secrets['OPENAI_API_KEY']
 client = OpenAI(api_key=api_key)
 
 # Methods for AI generation
