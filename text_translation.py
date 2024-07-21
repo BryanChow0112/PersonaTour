@@ -1,7 +1,6 @@
 from PIL import Image
 import pytesseract
 from deep_translator import GoogleTranslator
-import streamlit as st
 
 # Function to extract text from an image
 def extract_text_from_image(image_path):

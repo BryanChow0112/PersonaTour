@@ -14,6 +14,11 @@ pytesseract = "^0.3.10"
 googlemaps = "^4.10.0"
 requests = "^2.32.3"
 folium = "^0.17.0"
+pyyaml = "^6.0.1"
+streamlit-option-menu = "^0.3.13"
+gtts = "^2.5.1"
+polyline = "^2.0.2"
+pydantic = "^2.8.2"
 
 [tool.pyright]
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md

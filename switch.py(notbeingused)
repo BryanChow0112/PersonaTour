@@ -10,9 +10,9 @@ from urllib.parse import quote
 import requests
 import folium
 
-# Secrets stuff
-api_key = st.secrets['OPENAI_API_KEY']
-client = OpenAI(api_key=api_key)
+# # Secrets stuff
+# api_key = st.secrets['OPENAI_API_KEY']
+# client = OpenAI(api_key=api_key)
 
 # Create tabs
 tab1, tab2, tab3, tab4 = st.tabs(

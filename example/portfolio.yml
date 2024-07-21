@@ -1,0 +1,129 @@
+about_me:
+  name: Your Name
+  header: |
+    **A header text**
+  intro: |
+    Add brief description of your who you are and your career experiences
+
+  # Key links section
+  profile_pic: https://raw.githubusercontent.com/youngpada1/portfolio-app/9fcb7438c028c7517786155b5be9cd1fc517447e/portfolio-app/portfolio_app/images/menu/profile%20icon.png
+  resume: resume-template.pdf
+  github: https://github.com
+  linkedin: https://linkedin.com
+
+  links:
+    - title: Link title 1
+      url: http://www.google.com
+      image: &streamlit_image https://raw.githubusercontent.com/youngpada1/portfolio-app/efa44604e838ff5218db9a9229b8fff256df5ae6/portfolio-app/portfolio_app/images/menu/streamlit.png
+
+
+    - title: Link title 2
+      url: http://www.google.com
+      image: *streamlit_image
+
+    - title: Link title 3
+      url: http://www.google.com
+      image: *streamlit_image
+
+
+  youtube:
+    - title: Youtube Video 1
+      url: https://youtu.be/JSeQSnGovSE
+    - title: Youtube Video 2
+      url: https://youtu.be/YaFvCwjk-_A
+    - title: Youtube Video 3
+      url: https://youtu.be/vzlQkAzWCeI
+
+experience:
+  Company Name:
+    images:
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+
+    title: 
+      name: Add your role 
+      start date: 01/11/2021
+      end date: Present
+      location: Add the location
+
+    skills:
+      Skill: |
+        Add Description
+      Skill 1: |
+        Add Description
+      Skill 2: |
+        Add Description
+      Skill 3: |
+        Add Description
+
+  Company Name 1:
+    images:
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+
+    title: 
+      name: Add your role 
+      start date: 01/11/2021
+      end date: Present
+      location: Add the location
+
+    skills:
+      Skill: |
+        Add Description
+      Skill 1: |
+        Add Description
+      Skill 2: |
+        Add Description
+      Skill 3: |
+        Add Description
+
+  Company Name 2:
+    images:
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+      - name: Product Name
+        url: *streamlit_image
+        width: 94%
+
+    title: 
+      name: Add your role 
+      start date: 01/11/2021
+      end date: Present
+      location: Add the location
+
+    skills:
+      Skill: |
+        Add Description
+      Skill 1: |
+        Add Description
+      Skill 2: |
+        Add Description
+      Skill 3: |
+        Add Description

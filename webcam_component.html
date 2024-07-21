@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- Adjust the width and height to match your webcam's resolution -->
+<video id="video" width="640" height="480" autoplay></video>
+<button id="snap">Snap Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
+
+<script>
+
+// Grab elements, create settings, etc.
+var video = document.getElementById('video');
+var snapButton = document.getElementById('snap');
+var stream;
+
+// Function to start the webcam
+function startWebcam() {
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Not adding `{ audio: true }` since we only want video now
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function(mediaStream) {
+            //video.src = window.URL.createObjectURL(stream);
+            video.srcObject = mediaStream;
+            video.play();
+            stream = mediaStream;  // Save the stream for later use
+            
+            // Show the video element and the snap button
+            video.style.display = 'block';
+            snapButton.style.display = 'block';
+        });
+    }
+}
+
+// Start the webcam when the page loads
+startWebcam();
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+// Trigger photo take
+snapButton.addEventListener("click", function() {
+	context.drawImage(video, 0, 0, 1280, 720);
+    
+    // Convert the canvas image to a base64 string
+    var dataUrl = canvas.toDataURL('image/png');
+    
+    // Send the base64 string back to Python
+    window.parent.postMessage({type: 'streamlit', method: 'setComponentValue', args: [dataUrl], kwargs: {}}, '*');
+    
+    // Stop all tracks of the stream to turn off the webcam
+    stream.getTracks().forEach(function(track) {
+        track.stop();
+    });
+    
+    // Hide the video element and the snap button
+    video.style.display = 'none';
+    snapButton.style.display = 'none';
+});
+
+</script>
+
+</body>
+</html>
