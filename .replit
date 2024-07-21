@@ -1,4 +1,4 @@
-modules = ["python-3.10", "web", "nix"]
+modules = ["nix", "python-3.10", "web"]
 run = "streamlit run undefined"
 
 [nix]
