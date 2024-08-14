@@ -6,7 +6,7 @@ PersonaTour is your ultimate travel companion, designed to make trip planning fa
 
 ## Usage/Examples
 Click
-[here](https://refinedpy-zpxnzuvguv6mgjieww9au6.streamlit.app/)
+[here](https://personatour.streamlit.app/)
 for the app link
 
 ## Badges
